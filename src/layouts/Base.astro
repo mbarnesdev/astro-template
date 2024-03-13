@@ -1,0 +1,18 @@
+---
+import Meta from "@/components/Head/Meta.astro";
+import GoogleAnalytics from "@/components/Head/GoogleAnalytics.astro";
+import HotJar from "@/components/Head/HotJar.astro";
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <Meta title={title} description={description} />
+        <GoogleAnalytics />
+        <HotJar />
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
