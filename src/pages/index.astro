@@ -1,7 +1,10 @@
 ---
 import Base from "@/layouts/Base.astro";
+import { getAllPosts } from "@/api/wp-queries";
+
+const posts = await getAllPosts();
 ---
 
 <Base>
-	<p>/</p>
+	<pre>{JSON.stringify(posts)}</pre>
 </Base>
