@@ -13,6 +13,7 @@
     "@accessible360/accessible-slick": "^1.0.1",
     "@astrojs/check": "^0.5.7",
     "@astrojs/node": "^8.2.3",
+    "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/tailwind": "^5.1.0",
     "@splidejs/splide": "^4.1.4",
