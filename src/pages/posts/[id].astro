@@ -4,13 +4,11 @@ import { getPostById } from "@/api/wp-queries/get-post-by-id";
 import { getAllPostsIds } from "@/api/wp-queries/get-all-posts-ids"
 import type { GetStaticPaths } from "astro";
 
-export const getStaticPaths = (async () => {
-	const { posts } = await getAllPostsIds();
+export const getstaticpaths = (async () => {
+	const { posts } = await getallpostsids();
 
-	return posts.nodes.map(({ id }) => {
-		return { params: { id } } 
-	});
-}) satisfies GetStaticPaths;
+	return posts.nodes.map(({ id }) => ({ params: { id } }));
+}) satisfies getstaticpaths;
 
 const { id } = Astro.params
 const { post } = await getPostById(id!);
