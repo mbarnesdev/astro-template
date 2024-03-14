@@ -2,11 +2,17 @@
 import Base from "@/layouts/Base.astro";
 import { getAllPostsIds } from "@/api/wp-queries/get-all-posts-ids";
 
-const {
-	posts: { nodes },
-} = await getAllPostsIds();
+const { posts } = await getAllPostsIds();
 ---
 
 <Base>
-	<pre>{JSON.stringify(nodes)}</pre>
+	<ul>
+		{
+			posts.nodes.map(({ title, id }) => (
+				<li>
+					<a href={`http://localhost:4321/posts/${id}`}>{title}</a>
+				</li>
+			))
+		}
+	</ul>
 </Base>

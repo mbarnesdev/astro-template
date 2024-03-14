@@ -5,20 +5,20 @@ import { getAllPostsIds } from "@/api/wp-queries/get-all-posts-ids"
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
-	const { posts: { nodes } } = await getAllPostsIds();
+	const { posts } = await getAllPostsIds();
 
-	return nodes.map(({ id }) => {
+	return posts.nodes.map(({ id }) => {
 		return { params: { id } } 
 	});
 }) satisfies GetStaticPaths;
 
 const { id } = Astro.params
-const { post }  = await getPostById(id!);
+const { post } = await getPostById(id!);
 ---
 
 <Base>
 	<article class="prose">
 		<Fragment set:html={post.content} />
-	</article> 
+	</article>
 </Base>
 

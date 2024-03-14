@@ -1,6 +1,5 @@
 import { query } from "@/lib/graph-ql";
-import type { Post } from "@/generated/graphql";
-import type { WPPostReturnWrap } from "@/types/util";
+import type { PostSingleReturn } from "@/types/util";
 
 const _query = `
 query GetPostById($id:ID!) {
@@ -14,7 +13,7 @@ query GetPostById($id:ID!) {
 export const getPostById = async (id: string) => {
   const _variables = { id };
 
-  return query<WPPostReturnWrap<Post>>({
+  return query<PostSingleReturn>({
     query: _query,
     variables: _variables,
   });

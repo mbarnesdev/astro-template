@@ -4,13 +4,15 @@ import type { APIRoute } from "astro";
 import type { RSSFeedItem } from "@astrojs/rss";
 
 export const GET: APIRoute = async (context) => {
-  const posts = await getAllPostsRSS();
+  const { posts } = await getAllPostsRSS();
 
-  const items: RSSFeedItem[] = posts.map((post) => ({
-    title: post.title!,
-    link: `${context.site!}/posts/${post.id}/`,
-    pubDate: new Date(post.date!),
-  }));
+  const items: RSSFeedItem[] = posts.nodes.map((post) => {
+    return {
+      title: post.title!,
+      link: `${context.site!}posts/${post.id}`,
+      pubDate: new Date(post.date!),
+    };
+  });
 
   return rss({
     title: "RSS Title",

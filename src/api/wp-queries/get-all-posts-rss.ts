@@ -1,13 +1,12 @@
 import { query } from "@/lib/graph-ql";
-import type { Post } from "@/generated/graphql";
-import type { WPPostReturnWrap } from "@/types/util";
+import type { PostManyReturn } from "@/types/util";
 
 const _query = `
 {
   posts {
     nodes {
       title
-      excerpt
+      date
       id
     }
   }
@@ -15,5 +14,5 @@ const _query = `
 `;
 
 export const getAllPostsRSS = async () => {
-  return query<WPPostReturnWrap<Post>>({ query: _query });
+  return query<PostManyReturn>({ query: _query });
 };
