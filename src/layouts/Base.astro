@@ -13,6 +13,8 @@ const { title, description } = Astro.props;
         <HotJar />
     </head>
     <body>
-        <slot />
+        <main class="mx-auto max-w-3xl">
+            <slot />
+        </main>
     </body>
 </html>

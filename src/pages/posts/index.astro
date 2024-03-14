@@ -1,0 +1,12 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getAllPostsIds } from "@/api/wp-queries/get-all-posts-ids";
+
+const {
+	posts: { nodes },
+} = await getAllPostsIds();
+---
+
+<Base>
+	<pre>{JSON.stringify(nodes)}</pre>
+</Base>

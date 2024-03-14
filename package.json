@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "rm -rf dist/ astro check && astro build",
     "preview": "pnpm build && astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "dependencies": {
     "@accessible360/accessible-slick": "^1.0.1",
@@ -23,8 +24,12 @@
     "typescript": "^5.4.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/introspection": "4.0.3",
+    "@graphql-codegen/typescript": "4.0.6",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/jquery": "^3.5.29"
+    "@types/jquery": "^3.5.29",
+    "dotenv": "^16.4.5"
   }
 }
